@@ -80,8 +80,6 @@ void vertex() {
 	vec3 VAT_normal_next = texture(vat_position_texture, VAT_UV_offset_next + vec2(0.0, 0.5)).rgb;
     VAT_normal = 2.0 * VAT_normal - 1.0; // Unpack the normals from [0, 1] to [-1, 1]
 	VAT_normal_next = 2.0 * VAT_normal_next - 1.0; // Unpack the normals from [0, 1] to [-1, 1]
-    VAT_normal.x = -VAT_normal.x; // Flip X, for some reason
-    VAT_normal_next.x = -VAT_normal_next.x; 
 
     // Pass the unpacked normals to the fragment shader
     v_vat_normal = normalize(mix(VAT_normal,VAT_normal_next, blend));
